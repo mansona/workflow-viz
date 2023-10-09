@@ -9,7 +9,7 @@ export default class IndexController extends Controller {
   submit(event) {
     event.preventDefault();
     const url = event.target[0].value;
-    const [_, org, repo, id] =
+    const [, org, repo, id] =
       /github\.com\/(.+)\/(.+)\/actions\/runs\/(\d+)/.exec(url);
 
     this.router.transitionTo('view', org, repo, id);

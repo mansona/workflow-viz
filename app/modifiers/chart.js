@@ -18,6 +18,8 @@ export default modifier(function chart(element, [data] /* named*/) {
   // eslint-disable-next-line prettier/prettier
   this.h = (taskArray.length * (barHeight + actualGap)) + (topPadding * 2);
 
+  select(element.querySelector('.loading')).remove();
+
   const svg = select(element)
     .append('svg')
     .attr('width', this.w)
