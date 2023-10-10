@@ -55,7 +55,7 @@ export default modifier(function chart(element, [data] /* named*/) {
   function makeGrid(theSidePad, theTopPad, w, h) {
     var xAxis = axisBottom()
       .scale(timeScale)
-      .ticks(timeMinute.every(5))
+      .ticks(timeMinute.every(1))
       .tickSize(-h + theTopPad + 20, 0, 0)
       .tickSizeOuter(0);
 
