@@ -3,13 +3,6 @@ import Route from '@ember/routing/route';
 export default class ViewRoute extends Route {
   async model(params) {
     const { org, repo, id } = params;
-    const cacheKey = `${org}/${repo}/${id}`;
-
-    const cached = localStorage.getItem(cacheKey);
-
-    if (cached) {
-      return JSON.parse(cached);
-    }
 
     const jobs = [];
 
@@ -38,12 +31,6 @@ export default class ViewRoute extends Route {
         name: j.name,
       };
     });
-
-    try {
-      localStorage.setItem(cacheKey, JSON.stringify(trimmedJobs));
-    } catch {
-      // don't fail the app for not being able to save cache
-    }
 
     return trimmedJobs;
   }
